@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Aggregates\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Omnitudo.Shared\Omnitudo.Shared.csproj" />
   </ItemGroup>
 

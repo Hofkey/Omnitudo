@@ -12,6 +12,9 @@ namespace Omnitudo.Core.Entities
         [MaxLength(250, ErrorMessage = "File description is too long.")]
         public string Description { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = "Extension required.")]
+        public string Extension { get; set; } = string.Empty;
+
         [Required(ErrorMessage = "Media type is required.")]
         public PostFileMediaType MediaType { get; set; }
 

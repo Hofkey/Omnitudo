@@ -14,4 +14,8 @@
     <Folder Include="Models\Internal\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Omnitudo.Core\Omnitudo.Core.csproj" />
+  </ItemGroup>
+
 </Project>

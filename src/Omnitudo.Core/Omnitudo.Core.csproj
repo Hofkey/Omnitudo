@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <Folder Include="Aggregates\" />
-    <Folder Include="Exceptions\Http\" />
-    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Omnitudo.Shared\Omnitudo.Shared.csproj" />
   </ItemGroup>
 
 </Project>

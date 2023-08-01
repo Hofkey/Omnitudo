@@ -10,7 +10,7 @@ namespace Omnitudo.Core.Entities
         public string Email { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Username is required."),
-            MaxLength(25, ErrorMessage = "Username is too long.")]
+            MaxLength(50, ErrorMessage = "Username is too long.")]
         public string UserName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Password is required.")]

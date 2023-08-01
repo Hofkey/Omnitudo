@@ -23,5 +23,7 @@ namespace Omnitudo.API.Models.DTO
         [Required(ErrorMessage = "Categories are required."),
             MinLength(1, ErrorMessage = "At least one category is required.")]
         public List<CategoryDTO> Categories { get; set; } = new();
+
+        public List<IFormFile> Files { get; set; } = new List<IFormFile>();
     }
 }

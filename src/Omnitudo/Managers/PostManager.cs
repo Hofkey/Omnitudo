@@ -9,7 +9,7 @@ namespace Omnitudo.API.Managers
 {
     public class PostManager
     {
-        private readonly string mediaPath;
+        private readonly string mediaPath = "media/posts/";
         private readonly IWebHostEnvironment webHostEnvironment;
         private readonly IPostService postService;
         private readonly IPostFileService postFileService;
@@ -62,16 +62,19 @@ namespace Omnitudo.API.Managers
             foreach (var file in newPostDTO.Files)
             {
                 string mediaPostsPath = Path.Combine(webHostEnvironment.WebRootPath,
-                    "Media", "Posts");
+                    "Media", "Posts", post.Id.ToString());
 
-                await postFileService.CreateFile(new PostFile
+
+                var postFile = new PostFile
                 {
                     Description = post.Description,
                     MediaType = FileMediaTypeHelper.DetermineMediaType(file),
                     PostId = post.Id,
                     Title = post.Title,
                     Path = Path.Combine(mediaPostsPath, post.Id.ToString()),
-                });
+                };
+
+                await postFileService.CreateFile(postFile);
 
                 byte[] fileContent;
 
@@ -81,7 +84,7 @@ namespace Omnitudo.API.Managers
                     fileContent = memoryStream.ToArray();
                 }
 
-                fileService.WriteGuidFile(mediaPostsPath, post.Id, fileContent);
+                fileService.WriteGuidFile(mediaPostsPath, postFile.Id, fileContent);
             }
         }
     }

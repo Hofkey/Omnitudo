@@ -2,8 +2,8 @@
 {
     public class DuplicateEntityException : Exception
     {
-        public DuplicateEntityException(string entity, string property, string value)
-            : base(string.Format("{0} with {1} with the value of {2}, already exists!", entity, property, value))
+        public DuplicateEntityException(Type type, string property, string value)
+            : base($"{type.Name} with {property} with the value of {value}, already exists!")
         {
         }
     }

@@ -36,8 +36,6 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
-app.MapGet("/posts/get", )
-
 app.Run();
 
 internal record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)

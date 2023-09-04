@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
 using Omnitudo.API.Managers;
-using Omnitudo.API.Mappers;
 using Omnitudo.API.Models.DTO;
 
 namespace Omnitudo.API.Handlers
 {
-    public class PostRequestHandler
+    public class PostRequestHandler : BaseRequestHandler
     {
         private readonly string jsonContentType = "application/json";
 
@@ -47,17 +46,6 @@ namespace Omnitudo.API.Handlers
             {
                 await ReturnErrorResponse(exception, context);
             }
-        }
-
-        public async Task ReturnErrorResponse(Exception exception, HttpContext context)
-        {
-            var statusCode = StatusCodes.Status500InternalServerError;
-            context.Response.StatusCode = statusCode;
-
-            var faultDto = new ExceptionFaultDTOMapper(statusCode).ToDTO(exception);
-            var fault = JsonConvert.SerializeObject(faultDto);
-
-            await context.Response.WriteAsync(fault);
         }
     }
 }
